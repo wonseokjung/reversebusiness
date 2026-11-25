@@ -7,6 +7,24 @@ description: 사업 웹사이트 주소 하나를 받아 그 사업을 해부한
 
 **English summary.** This skill makes a coding agent (Claude Code, Codex, Gemini CLI, Cursor, Antigravity) dissect a business from one website URL instead of copying it. From publicly observable material only, it fills six fixed boxes: who pays and why, the core user flow, a screen and feature map, the observable tech setup, an evidence ledger with explicit unknowns, and a clean-room spec for a different product that solves the same problem. Every statement is tagged observed, inferred or unknown and points to an evidence entry. It never bypasses logins, paywalls or access limits, never bulk-crawls, and never copies code, copy, images or brand. Output is a `report.json` in a fixed schema plus a single-file dissection view (money flow diagram, layered wireframe scene, skeleton to my-version comparison, 9:16 video export). A light collector (`tools/collect.mjs`) reads up to five public pages after checking robots.txt; when the received HTML is thin it opens the page once in a headless Chromium-family browser with a throwaway profile and reads the drawn page. When REA is installed (the `rebiz` command installs the official `rea-agents` package only after the user confirms; declining keeps the light mode) it switches to a precise mode with three depths: surface (drawn text and structure), flow (expanding clicks only, plus the host names the page tried to contact) and code (names found in already downloaded scripts, skipped when the terms forbid code analysis). Addresses found in code are never called, and anything seen only in code is recorded as a code trace, never as observed. When REA (a separate MIT tool) is installed, its Evidence JSON can seed the report draft instead (`tools/from-rea.mjs`). After the report, the agent builds a new page from the clean-room spec only and runs `tools/check-clone.mjs`, which fails on any run of five identical words, the target's brand names or domains, or the target's asset URLs. Three more tools cover what comes after the dissection: `tools/make-site.mjs` writes a static starting point from the cell 6 spec and the learned section order (guidance text in the copy slots, nothing from the target), `tools/apply-plan.mjs` compares the first screen of an existing project with the learned skeleton and writes the gaps to `rebiz-apply/plan.md`, and `tools/video.mjs` exports the 9:16 dissection video through a headless browser.
 
+## 캐릭터 (포도청 다모 · 사업 분석 직원 · 움직이는 픽셀 명찰)
+마크다운 이미지를 보여 주는 채팅 앱(Antigravity, Cursor, IDE 채팅)에서는 사용자에게 답할 때 현재 단계에 맞는 작은 움직이는 픽셀 명찰을 첫 줄에 띄우고 다음 줄에 답한다(사용자가 지어 준 별명이 있으면 그대로 쓴다):
+- 인사 / 대상 URL 확인 / 시작 안내:
+  `![사업 분석 직원](https://raw.githubusercontent.com/wonseokjung/reversebusiness/main/skill/reversebusiness/assets/mascot/chat-greet.gif)`
+- 공개 페이지 읽기 / 약관·robots.txt 확인 / 근거 수집:
+  `![사업 분석 직원 · 조사](https://raw.githubusercontent.com/wonseokjung/reversebusiness/main/skill/reversebusiness/assets/mascot/chat-collect.gif)`
+- 6칸 사업 해부(`report.json`) / 내 버전 명세 작성 / 겹침 검사:
+  `![사업 분석 직원 · 해부](https://raw.githubusercontent.com/wonseokjung/reversebusiness/main/skill/reversebusiness/assets/mascot/chat-dissect.gif)`
+- 해부 화면(`report.html`) 및 내 버전·9:16 영상 준비 완료:
+  `![사업 분석 직원 · 완료](https://raw.githubusercontent.com/wonseokjung/reversebusiness/main/skill/reversebusiness/assets/mascot/chat-done.gif)`
+
+로컬 사본(`chat-*.gif`, 정사각 `*.gif`, CONNECT AI HQ 20x20 PixelCrew 규격 `mascot.json`)은 이 `SKILL.md` 옆 `assets/mascot/`에 함께 설치된다. 이 캐릭터 그림은 채팅 답장에만 쓰며, 생성하는 `report.json`·해부 화면·내 버전 사이트에는 넣지 않는다. 이미지가 렌더링되지 않는 일반 텍스트 터미널에서는 이미지 줄을 생략한다.
+
+## 팀 인계 규격 (`connect-ai-handoff/v1`)
+여러 AI 직원이 이어서 일할 때(예: `reversebusiness` -> `connect-ai-xr` / `connect-ai-writer` / `connect-ai-motion`, 또는 CONNECT AI HQ 팀 파이프라인):
+- 시작 전 작업 폴더의 `handoff.json`을 읽는다(또는 HQ MCP `read_handoff_packet` 호출).
+- 완료 시 `handoff.json`(`schema: "connect-ai-handoff/v1"`, `from: "reversebusiness"`, `to`, `summary`, `artifacts`, `nextAction`)을 저장하거나 HQ MCP `write_handoff_packet`으로 다음 직원에게 안전하게 넘긴다(비밀 값·원본 복제물·절대 경로 금지).
+
 ## 지켜야 할 선 (먼저 읽고, 어기는 요청은 거절한다)
 
 배워도 되는 것은 기능, 흐름, 사업 구조다. 가져오면 안 되는 것은 코드, 문구, 이미지, 브랜드다.
