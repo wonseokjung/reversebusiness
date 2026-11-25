@@ -20,11 +20,6 @@ description: 사업 웹사이트 주소 하나를 받아 그 사업을 해부한
 
 로컬 사본(`chat-*.gif`, 정사각 `*.gif`, CONNECT AI HQ 20x20 PixelCrew 규격 `mascot.json`)은 이 `SKILL.md` 옆 `assets/mascot/`에 함께 설치된다. 이 캐릭터 그림은 채팅 답장에만 쓰며, 생성하는 `report.json`·해부 화면·내 버전 사이트에는 넣지 않는다. 이미지가 렌더링되지 않는 일반 텍스트 터미널에서는 이미지 줄을 생략한다.
 
-## 팀 인계 규격 (`connect-ai-handoff/v1`)
-여러 AI 직원이 이어서 일할 때(예: `reversebusiness` -> `connect-ai-xr` / `connect-ai-writer` / `connect-ai-motion`, 또는 CONNECT AI HQ 팀 파이프라인):
-- 시작 전 작업 폴더의 `handoff.json`을 읽는다(또는 HQ MCP `read_handoff_packet` 호출).
-- 완료 시 `handoff.json`(`schema: "connect-ai-handoff/v1"`, `from: "reversebusiness"`, `to`, `summary`, `artifacts`, `nextAction`)을 저장하거나 HQ MCP `write_handoff_packet`으로 다음 직원에게 안전하게 넘긴다(비밀 값·원본 복제물·절대 경로 금지).
-
 ## 지켜야 할 선 (먼저 읽고, 어기는 요청은 거절한다)
 
 배워도 되는 것은 기능, 흐름, 사업 구조다. 가져오면 안 되는 것은 코드, 문구, 이미지, 브랜드다.
