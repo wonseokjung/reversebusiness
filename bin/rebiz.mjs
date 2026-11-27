@@ -28,6 +28,7 @@ import { SKILL_NAME, planTargets, planInstall, applyInstall, planRemove, applyRe
 import { REA_PACKAGE, REA_REPO, REA_NODE, REA_CLIENTS, REA_SKILL, reaState, reaInstaller, runRea, currentNode, nodeOk } from '../skill/reversebusiness/tools/rea-bridge.mjs';
 import { AGENT_CLIS, DEFAULT_MINUTES, findAgentCli, agentScope, runAgent, fillPrompt, specPrompt, applyPrompt } from '../lib/delegate.mjs';
 import { pickLang } from '../lib/lang.mjs';
+import { banner as brandBanner } from '../lib/banner.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const PKG = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
@@ -116,6 +117,7 @@ const isEn = (o) => activeLang(o) === 'en';
 const tx = (ko, en, o) => (isEn(o) ? en : ko);
 
 function banner(extra = '', o = null) {
+  say(brandBanner({ lang: isEn(o) ? 'en' : 'ko' }));
   say(`${T.gold('▍')}${T.bold('reversebusiness')} ${T.dim(PKG.version)}${extra ? `  ${T.dim(extra)}` : ''}`);
 }
 function promo(o = null) {
