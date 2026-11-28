@@ -42,7 +42,9 @@
     "gemini-cli",
     "antigravity",
     "business-analysis",
-    "clean-room"
+    "clean-room",
+    "ai-agent",
+    "automation-agent"
   ],
   "license": "MIT"
 }
