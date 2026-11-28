@@ -19,6 +19,14 @@ npx github:wonseokjung/reversebusiness
 
 **One command installs the `reversebusiness` skill (and optionally [REA](https://github.com/morluto/rea) after you confirm).** Zero npm dependencies, Node 18+ (`macOS · Windows · Linux`; REA requires `Node 22.19+`, `24.11+`, or `26+`).
 
+<p align="center">
+  <img src="skill/reversebusiness/assets/mascot/greet.gif" width="68" alt="Joseon Damo Investigator · Greet">&nbsp;
+  <img src="skill/reversebusiness/assets/mascot/collect.gif" width="68" alt="Joseon Damo Investigator · Collect">&nbsp;
+  <img src="skill/reversebusiness/assets/mascot/dissect.gif" width="68" alt="Joseon Damo Investigator · Dissect">&nbsp;
+  <img src="skill/reversebusiness/assets/mascot/done.gif" width="68" alt="Joseon Damo Investigator · Done"><br>
+  <sub><b>Joseon Damo · Business Investigator</b> (CONNECT AI HQ PixelCrew) — gently animated pixel portrait that switches expression as it greets, gathers public evidence, dissects the 6 boxes, and finishes your clean-room report.</sub>
+</p>
+
 ## Quick start (30 seconds)
 
 1. Run the command above in your terminal. It detects installed coding agents (`Claude Code`, `Codex`, `Gemini CLI`, `Cursor`, `Antigravity`), shows the exact paths it will update, asks before installing, and asks separately before setting up `rea-agents` (`--no-rea` skips REA, `--yes` confirms automatically).

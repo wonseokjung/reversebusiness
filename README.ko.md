@@ -19,6 +19,14 @@ npx github:wonseokjung/reversebusiness
 
 **한 줄이면 `reversebusiness` 스킬이 설치되고, 원하시면 확인을 거쳐 공식 [REA](https://github.com/morluto/rea) 도 함께 연결됩니다.** 의존성 0개, Node 18 이상 (`macOS · Windows · Linux` 지원, REA 정밀 모드는 Node `22.19+`, `24.11+`, `26+`).
 
+<p align="center">
+  <img src="skill/reversebusiness/assets/mascot/greet.gif" width="68" alt="포도청 다모 사업 분석가 · 인사">&nbsp;
+  <img src="skill/reversebusiness/assets/mascot/collect.gif" width="68" alt="포도청 다모 사업 분석가 · 수집">&nbsp;
+  <img src="skill/reversebusiness/assets/mascot/dissect.gif" width="68" alt="포도청 다모 사업 분석가 · 해부">&nbsp;
+  <img src="skill/reversebusiness/assets/mascot/done.gif" width="68" alt="포도청 다모 사업 분석가 · 완료"><br>
+  <sub><b>포도청 다모 · 사업 분석가</b> (CONNECT AI HQ PixelCrew) — 대화할 때 인사·근거 수집·6칸 해부·완성 상태에 맞춰 작게 움직이며 표정이 바뀌는 픽셀 캐릭터예요.</sub>
+</p>
+
 ## 30초 시작하기
 
 1. 터미널에 위 명령을 실행합니다. 컴퓨터에 설치된 코딩 에이전트(`Claude Code`, `Codex`, `Gemini CLI`, `Cursor`, `Antigravity`)를 찾아 바뀔 폴더를 먼저 보여 준 뒤 확인을 거쳐 설치합니다. `REA` 가 없으면 설치할 내용(`rea-agents`)을 보여 주고 한 번 더 확인합니다(`--no-rea` 로 생략, `--yes` 로 자동 동의).
